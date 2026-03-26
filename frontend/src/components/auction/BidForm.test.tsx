@@ -48,7 +48,7 @@ describe('BidForm', () => {
 
         fireEvent.change(bidInput, { target: { value: '0.5' } });
         fireEvent.change(campaignInput, { target: { value: '10' } });
-        fireEvent.click(submitButton);
+        fireEvent.submit(bidInput.closest('form')!);
 
         expect(await screen.findByText(/Minimum bid is 1.0000 XLM/i)).toBeInTheDocument();
         expect(mockMutateAsync).not.toHaveBeenCalled();
