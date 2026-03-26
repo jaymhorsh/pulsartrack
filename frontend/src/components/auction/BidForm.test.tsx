@@ -29,7 +29,7 @@ describe('BidForm', () => {
     beforeEach(() => {
         vi.clearAllMocks();
         vi.mocked(usePlaceBid).mockReturnValue({
-            mutateAsync: mockMutateAsync,
+            placeBid: mockMutateAsync,
             isPending: false,
         } as any);
     });
@@ -70,7 +70,7 @@ describe('BidForm', () => {
 
         await waitFor(() => {
             expect(mockMutateAsync).toHaveBeenCalledWith({
-                auctionId: 1n,
+                auctionId: 1,
                 campaignId: 123,
                 amountStroops: 25000000n, // Matches BidForm call to placeBid
             });
